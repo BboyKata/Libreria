@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package libreria;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  *
  * @author Studente
@@ -34,7 +29,7 @@ public class Libreria {
 
     public boolean contieneLibro(String titolo) {
         for (int j = 0; j < libreria.length; j++) {
-            if (titolo.equals(libreria[j].titolo)) {
+            if (libreria[j] != null && titolo.equals(libreria[j].titolo)) {
                 return true;
             }
         }
