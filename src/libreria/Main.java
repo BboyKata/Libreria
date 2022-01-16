@@ -27,7 +27,7 @@ public class Main {
             c = Integer.parseInt(myObj.nextLine());
             switch (c) {
                 case 1:
-                    if (libreria.aggiungiLibro(aggiungiLibro())) {
+                    if (libreria.aggiungiLibro()) {
                         System.out.println("Libro inserito correttamente!");
                     } else {
                         System.out.println("Non c'è spazio per questo libro!");
@@ -61,24 +61,4 @@ public class Main {
         } while (c != 0);
 
     }
-
-    private static Libro aggiungiLibro() {
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        Libro libro = new Libro();
-        System.out.println("Inserisci titolo: ");
-        libro.setTitolo(myObj.nextLine());
-        System.out.println("Inserisci autore: ");
-        libro.setAutore(myObj.nextLine());
-        System.out.println("Inserisci genere: ");
-        libro.setGenere(myObj.nextLine());
-        System.out.println("Inserisci casa editrice: ");
-        libro.setCasaEditrice(myObj.nextLine());
-        System.out.println("Inserisci anno pubblicazione: ");
-        libro.setAnnoPubblicazione(Integer.parseInt(myObj.nextLine()));
-        System.out.println("Inserisci prezzo: ");
-        libro.setPrezzo(Double.parseDouble(myObj.nextLine()));
-        return libro;
-
-    }
-
 }

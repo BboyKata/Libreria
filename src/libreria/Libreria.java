@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package libreria;
+
+import java.util.Scanner;
+
 /**
  *
  * @author Studente
@@ -18,9 +21,30 @@ public class Libreria {
         this.libreria = new Libro[m];
     }
 
-    public boolean aggiungiLibro(Libro l) {
+    public boolean aggiungiLibro() {
         if (i < libreria.length) {
-            libreria[i] = l;
+            Libro libro = new Libro();
+            Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+            
+            System.out.println("Inserisci titolo: ");
+            libro.setTitolo(myObj.nextLine());
+            
+            System.out.println("Inserisci autore: ");
+            libro.setAutore(myObj.nextLine());
+            
+            System.out.println("Inserisci genere: ");
+            libro.setGenere(myObj.nextLine());
+            
+            System.out.println("Inserisci casa editrice: ");
+            libro.setCasaEditrice(myObj.nextLine());
+            
+            System.out.println("Inserisci anno pubblicazione: ");
+            libro.setAnnoPubblicazione(Integer.parseInt(myObj.nextLine()));
+            
+            System.out.println("Inserisci prezzo: ");
+            libro.setPrezzo(Double.parseDouble(myObj.nextLine()));
+            
+            libreria[i] = libro;
             i++;
             return true;
         }
