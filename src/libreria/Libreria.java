@@ -25,25 +25,25 @@ public class Libreria {
         if (i < libreria.length) {
             Libro libro = new Libro();
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-            
+
             System.out.println("Inserisci titolo: ");
             libro.setTitolo(myObj.nextLine());
-            
+
             System.out.println("Inserisci autore: ");
             libro.setAutore(myObj.nextLine());
-            
+
             System.out.println("Inserisci genere: ");
             libro.setGenere(myObj.nextLine());
-            
+
             System.out.println("Inserisci casa editrice: ");
             libro.setCasaEditrice(myObj.nextLine());
-            
+
             System.out.println("Inserisci anno pubblicazione: ");
             libro.setAnnoPubblicazione(Integer.parseInt(myObj.nextLine()));
-            
+
             System.out.println("Inserisci prezzo: ");
             libro.setPrezzo(Double.parseDouble(myObj.nextLine()));
-            
+
             libreria[i] = libro;
             i++;
             return true;
@@ -60,6 +60,23 @@ public class Libreria {
         return false;
     }
 
+    public boolean isGenerePresente(String genere) {
+        for (int j = 0; j < libreria.length; j++) {
+            if (libreria[j] != null && genere.equals(libreria[j].genere)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void applicaSconto(String genere, int sconto){
+        for (int j = 0; j < libreria.length; j++) {
+            if(libreria[j] != null && genere.equals(libreria[j].genere)){
+                this.libreria[j].prezzo *= (100-sconto)/100;
+            }
+        }
+    }
+    
     private int indiceLibro(String titolo) {
         for (int j = 0; j < libreria.length; j++) {
             if (titolo.equals(libreria[j].titolo)) {
