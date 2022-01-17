@@ -22,7 +22,7 @@ public class Main {
         Libreria libreria = new Libreria(Integer.parseInt(myObj.nextLine()));
         int c = 0;
         do {
-            System.out.println("0) Esci;\n1) Aggiungi libro;\n2) Verifica presenza di un libro;\n3) Mostra libri\n4) Rimuovi libro.");
+            System.out.println("0) Esci;\n1) Aggiungi libro;\n2) Verifica presenza di un libro;\n3) Mostra libri\n4) Rimuovi libro.\n5)Applica sconto a un determinato genere;");
             System.out.println("Scegli un'operazione da eseguire sulla tua libreria: ");
             c = Integer.parseInt(myObj.nextLine());
             switch (c) {
@@ -34,7 +34,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Inserisci il titolo del libro da cercare: ");
+                    System.out.print("Inserisci il titolo del libro da cercare: ");
                     if (libreria.contieneLibro(myObj.nextLine())) {
                         System.out.println("Il libro c'è");
                     } else {
@@ -45,11 +45,22 @@ public class Main {
                     libreria.stampa();
                     break;
                 case 4:
-                    System.out.println("Inserisci il titololo del libro da rimouovere: ");
+                    System.out.print("Inserisci il titololo del libro da rimouovere: ");
                     if (libreria.rimuoviLibro(myObj.nextLine())) {
                         System.out.println("Libro rimosso");
                     } else {
                         System.out.println("Il libro non c'è");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Inserisci il genere da scontare: ");
+                    String genere = myObj.nextLine();
+                    if(libreria.isGenerePresente(genere)){
+                        System.out.print("Inserisci lo sconto da applicare al genere "+genere+": ");
+                        libreria.applicaSconto(genere, Integer.parseInt(myObj.nextLine()));
+                        System.out.println("Sconto applicato.");
+                    }else{
+                        System.out.println("Questo genere non c'è quindi non può essere scontato.");
                     }
                     break;
                 case 0:
